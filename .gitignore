@@ -68,7 +68,7 @@ celerybeat-schedule.*
 
 # Environments
 .env
-.venv
+AppStore/.venv
 venv/
 ENV/
 env.bak/

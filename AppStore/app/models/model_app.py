@@ -4,7 +4,7 @@ from django.db import models
 
 class App(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, db_index=True)
     description = models.TextField()
     icon = models.ImageField(upload_to='icons')
     is_verified = models.BooleanField(default=False)

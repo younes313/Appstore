@@ -1,6 +1,7 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.mixins import ListModelMixin
 from rest_framework.parsers import MultiPartParser
 from rest_framework.permissions import AllowAny
@@ -36,3 +37,5 @@ class AppListViewSet(ListModelMixin, GenericViewSet):
     queryset = App.objects.filter(is_verified=True)
     serializer_class = AppListSerializer
     permission_classes = [AllowAny]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    search_fields = ['title']

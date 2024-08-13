@@ -9,6 +9,7 @@ class App(models.Model):
     icon = models.ImageField(upload_to='icons')
     is_verified = models.BooleanField(default=False)
     link = models.URLField(max_length=255)
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

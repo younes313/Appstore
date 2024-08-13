@@ -1,11 +1,14 @@
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
+from rest_framework.mixins import ListModelMixin
 from rest_framework.parsers import MultiPartParser
+from rest_framework.permissions import AllowAny
+from rest_framework.viewsets import GenericViewSet
 
 from ..models import App
 from ..permissions import IsCreatorOrReadOnly
-from ..serializers import AppCreatorSerializer
+from ..serializers import AppCreatorSerializer, AppListSerializer
 
 
 class AppCreatorViewSet(viewsets.ModelViewSet):
@@ -27,3 +30,9 @@ class AppCreatorViewSet(viewsets.ModelViewSet):
     )
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+
+
+class AppListViewSet(ListModelMixin, GenericViewSet):
+    queryset = App.objects.filter(is_verified=True)
+    serializer_class = AppListSerializer
+    permission_classes = [AllowAny]

@@ -1,1 +1,1 @@
-from .view_app import AppCreatorViewSet
+from .view_app import AppCreatorViewSet, AppListViewSet

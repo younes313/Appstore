@@ -1,1 +1,1 @@
-from .serializer_app import AppCreatorSerializer
+from .serializer_app import AppCreatorSerializer, AppListSerializer

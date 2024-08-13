@@ -10,3 +10,9 @@ class AppCreatorSerializer(serializers.ModelSerializer):
         model = App
         fields = '__all__'
         read_only_fields = ['id', 'creator', 'is_verified']
+
+
+class AppListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = App
+        exclude = ['link']

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'user_management',
     'app',
     'wallet',
+    'purchase',
 ]
 
 MIDDLEWARE = [

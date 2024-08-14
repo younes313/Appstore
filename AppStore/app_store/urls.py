@@ -36,6 +36,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user-management/', include('user_management.urls')),
     path('app/', include('app.urls')),
+    path('purchase/', include('purchase.urls')),
 
     # Include DRF-Swagger URLs
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
